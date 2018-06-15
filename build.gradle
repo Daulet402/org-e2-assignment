@@ -8,11 +8,12 @@ sourceCompatibility = 1.8
 
 jar {
     manifest {
-        attributes 'Main-Class': 'org.e2.assessment.App'
+        attributes 'Main-Class': 'org.e2.assessment.SecuritySystemApplication'
     }
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
 }
 
-mainClassName = 'org.e2.assessment.App'
+mainClassName = 'org.e2.assessment.SecuritySystemApplication'
 
 repositories {
     mavenCentral()
