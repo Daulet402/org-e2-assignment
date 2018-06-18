@@ -174,6 +174,7 @@ public class SecuritySystemImpl implements ISecuritySystem {
         if (!hasPrivilege) {
             hasPrivilege = user.getRoles()
                     .stream()
+                    .filter(role -> !role.getPrivileges().isEmpty())
                     .map(Role::getPrivileges)
                     .map(Iterable::iterator)
                     .map(Iterator::next)
